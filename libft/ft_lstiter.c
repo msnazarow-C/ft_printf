@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 17:40:15 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/20 17:59:01 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/05/22 11:00:02 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	ft_lstiter(t_list *list, void (*f)(void *))
 		return ;
 	while (list)
 	{
-		f(list->content);
+		if (list->content)
+			f(list->content);
 		list = list->next;
 	}
 }

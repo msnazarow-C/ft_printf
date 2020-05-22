@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 18:00:08 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/21 07:48:45 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/05/22 11:13:30 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,23 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list *out;
 	t_list *out_temp;
+	t_list *f_temp;
 
-	if (!lst || !f || !del ||
-	!(out = ft_lstnew(f(lst->content))))
+	f_temp = f(lst->content);
+	if (!lst || !f || !del)
+		return (0);
+	else if (!(out = ft_lstnew(f_temp)))
 	{
-		ft_lstclear(&out, del);
+		del(f_temp);
 		return (0);
 	}
 	out_temp = out;
+	f_temp = f(lst->content);
 	while ((lst = lst->next))
 	{
-		if (!(out->next = ft_lstnew(f(lst->content))))
+		if (!(out->next = ft_lstnew(f_temp)))
 		{
+			del(f_temp);
 			ft_lstclear(&out_temp, del);
 			return (0);
 		}
