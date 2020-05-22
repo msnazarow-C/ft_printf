@@ -37,7 +37,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES) libft.h
-	ar rc $(NAME) $(OBJ_FILES)
+	ar rc $(NAME) $?
 	ranlib $(NAME)
 
 %.o: %.c libft.h
