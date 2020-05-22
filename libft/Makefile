@@ -6,7 +6,7 @@
 #    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 20:40:17 by sgertrud          #+#    #+#              #
-#    Updated: 2020/05/22 11:22:36 by sgertrud         ###   ########.fr        #
+#    Updated: 2020/05/22 13:07:45 by sgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,11 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ_FILES)
+$(NAME): $(OBJ_FILES) libft.h
 	ar rc $(NAME) $(OBJ_FILES)
 	ranlib $(NAME)
 
 %.o: %.c libft.h
-	@echo "\e[38;5;30mLinking   libft.a...\e[0m"
 	$(CC) -g -c $(CFLAGS) -o $@ $<
 
 clean:
@@ -57,5 +56,5 @@ re:
 bonus:
 	$(MAKE) WITH_BONUS=1 all
 so:
-	gcc -fPIC -shared $(OBJ_FILES) $(BONUS_OBJ_FILES) -o libft.so
+	$(CC) -fPIC -shared $(OBJ_FILES) $(BONUS_OBJ_FILES) -o libft.so
 .PHONY: all clean fclean re so
