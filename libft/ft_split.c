@@ -20,7 +20,7 @@ static	void	*free_mem(char **result)
 	return (NULL);
 }
 
-static int				numwords(char *str, char c)
+static int	numwords(char *str, char c)
 {
 	int i;
 	int out;
@@ -38,7 +38,7 @@ static int				numwords(char *str, char c)
 	return (out);
 }
 
-static void			oneword(char *str, int *i, int *lengthofword, char c)
+static void	oneword(char *str, int *i, int *lengthofword, char c)
 {
 	while ((str[*i] == c) && str[*i])
 		(*i)++;
@@ -50,7 +50,7 @@ static void			oneword(char *str, int *i, int *lengthofword, char c)
 	}
 }
 
-char			**ft_split(char *str, char c)
+char		**ft_split(char *str, char c)
 {
 	int i;
 	int j;
