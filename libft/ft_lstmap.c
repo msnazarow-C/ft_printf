@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 18:00:08 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/22 11:13:30 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/05/23 06:24:18 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *out;
-	t_list *out_temp;
-	void *f_temp;
+	t_list	*out;
+	t_list	*out_temp;
+	void	*f_temp;
 
 	f_temp = f(lst->content);
 	if (!lst || !f || !del)
