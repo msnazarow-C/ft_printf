@@ -50,7 +50,7 @@ static void	oneword(char *str, int *i, int *lengthofword, char c)
 	}
 }
 
-char		**ft_split(char *str, char c)
+char		**ft_split(char const *str, char c)
 {
 	int i;
 	int j;
