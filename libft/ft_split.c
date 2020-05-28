@@ -6,13 +6,13 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 15:26:49 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/21 06:11:27 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/05/28 16:38:40 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void	*free_mem(char **result)
+static	void*free_mem(char **result)
 {
 	while (*result)
 		free(*result++);

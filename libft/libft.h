@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 18:43:03 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/20 18:39:59 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/05/28 16:20:53 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct	s_list
 {
-	struct s_list	*next;
 	void			*content;
+	struct s_list	*next;
 }				t_list;
 
 void			ft_bzero(void *s, size_t n);

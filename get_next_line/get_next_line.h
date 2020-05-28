@@ -5,21 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/23 06:03:14 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/23 06:21:55 by sgertrud         ###   ########.fr       */
+/*   Created: 2020/05/28 16:34:47 by sgertrud          #+#    #+#             */
+/*   Updated: 2020/05/28 16:35:33 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# include "fcntl.h"
-# include "unistd.h"
+# include <fcntl.h>
+# include <unistd.h>
 
-typedef struct		s_list
+typedef struct	s_list
 {
+	void			*content;
 	struct s_list	*next;
-	char			*data;
-	int				len;
-}					t_list;
+}				t_list;
 
+int get_next_line(int fd, char **line);
 #endif
