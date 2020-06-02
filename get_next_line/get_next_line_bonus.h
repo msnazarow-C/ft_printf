@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 12:27:18 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/31 01:39:17 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/01 10:07:53 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 128
 # endif
-# define FD 1
+# define FD 4
 
 int		get_next_line(int fd, char **line);
 char	*ft_strjoin(char const *s1, char const *s2);

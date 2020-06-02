@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 22:17:24 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/30 23:14:20 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/01 10:06:08 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_realloc(char **data, size_t len, size_t newlen)
 	if (!(out = (char**)malloc(newlen * sizeof(char*))))
 		return (0);
 	ft_bzero(out, newlen * sizeof(char*));
-	while (len--)
+	while (data && len--)
 		out[len] = data[len];
 	free(data);
 	return (out);
