@@ -2,3 +2,10 @@ pft/
 main.c
 *.o
 ./*.o
+./*.d
+*.d
+a.out
+./*/a.out
+*/*.a
+*.a
+./*.a

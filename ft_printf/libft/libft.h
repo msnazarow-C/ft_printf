@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 18:43:03 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/05 13:46:35 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/12 00:31:26 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char			**ft_split(char const *str, char c);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_itoa(int n);
 int				ft_putnbr_fd_ull(unsigned long long nb, int fd);
-int				ft_putchar_fd(int c, int fd);
+int				ft_putchar_fd(wchar_t c, unsigned int prec, int fd);
 int				ft_putstr_fd(char *s, int fd);
 int				ft_putendl_fd(char *s, int fd);
 t_list			*ft_lstnew(void *content);
@@ -65,4 +65,15 @@ t_list			*ft_lstlast(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 			void (*del)(void *));
+double			ft_pw(double nb, int power);
+int				ft_abs(int a);
+double			f_abs(double l);
+int				u_digital(char c);
+int				digital(int c);
+char			bigdigit(int a);
+char			smalldigit(int a);
+int				base(char c);
+int				max(int a, int b);
+int				min(int a, int b);
+int				is_flag(char c);
 #endif

@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 19:46:00 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/07 07:45:13 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/12 00:35:57 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int		pars_int(char **s)
 	return (out);
 }
 
-void	mod_parsing(char **s, t_format *format)
+static void	mod_parsing(char **s, t_format *format)
 {
 	if (**s == 'h' || **s == 'l')
 	{
@@ -54,6 +54,27 @@ void	mod_parsing(char **s, t_format *format)
 	}
 	else if (**s == 'L')
 		format->mod[1] = *(*s)++;
+}
+
+static void	parsing_add(t_format *f)
+{
+	if (f->cv == 'u')
+		f->flag[1] = 0;
+	if (f->cv == 'p')
+	{
+		f->flag[3] = 1;
+	}
+	if (f->cv == 's')
+	{
+		f->flag[1] = 0;
+		f->flag[2] = 0;
+		f->flag[3] = 0;
+		f->flag[4] = 0;
+	}
+	if (f->cv == 'c')
+		f->prec = -1;
+	if ((f->cv == 'f' || f->cv == 'e' || f->cv == 'g') && f->prec == -1)
+		f->prec = 6;
 }
 
 char	*parsing(char *s, t_format *f, va_list arg)
@@ -83,21 +104,4 @@ char	*parsing(char *s, t_format *f, va_list arg)
 	f->cv = cv(&s);
 	parsing_add(f);
 	return (s);
-}
-
-void	parsing_add(t_format *f)
-{
-	if (f->cv == 'u')
-		f->flag[1] = 0;
-	if (f->cv == 'p')
-	{
-		f->flag[3] = 1;
-	}
-	if (f->cv == 's')
-	{
-		f->flag[1] = 0;
-		f->flag[2] = 0;
-		f->flag[3] = 0;
-		f->flag[4] = 0;
-	}
 }

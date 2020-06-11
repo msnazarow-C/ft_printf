@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 21:20:15 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/07 01:02:48 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/11 16:04:42 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,6 @@ void	clear(t_format *format)
 	format->count = 0;
 	format->len = 0;
 	format->nil = 0;
+	format->inf = 0;
+	format->g = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 01:45:38 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/07 01:01:54 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/11 21:05:23 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	ft_printf(const char *s, ...)
 			{
 				clear(&format);
 				s = parsing((char*)(s + 1), &format, arg);
-				out += print_width(&format, arg);
+				if (format.cv == 'n')
+					*(va_arg(arg, int*)) = out;
+				else
+					out += print_width(&format, arg);
 			}
 			if (*s)
-			{
-				out += ft_putchar_fd(*s, 1);
-				s++;
-			}
+				out += ft_putchar_fd(*s++, 1, 1);
 		}
 	va_end(arg);
 	return (out);

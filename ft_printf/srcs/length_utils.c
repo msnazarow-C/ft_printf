@@ -1,16 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lenght_utils.c                                     :+:      :+:    :+:   */
+/*   length_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:52:21 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/07 07:56:15 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/11 15:59:37 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+int	u_len(t_format *f, va_list arg)
+{
+	if (f->mod[0] == 'l')
+		return (f->mod[1] == 'l' ? u_lbase(va_arg(arg,
+		unsigned long long), f, base(f->cv)) : u_lbase(
+		va_arg(arg, unsigned long), f, base(f->cv)));
+	else if (f->mod[0] == 'h')
+		return (f->mod[1] == 'h' ? u_lbase((char)va_arg(arg, int), f,
+		base(f->cv)) : u_lbase((short)va_arg(arg, int), f, base(f->cv)));
+	else
+		return (u_lbase(va_arg(arg, unsigned int), f, base(f->cv)));
+}
+
+int	s_len(t_format *f, va_list arg)
+{
+	if (f->mod[0] == 'l')
+		return (f->mod[1] == 'l' ? lbase(va_arg(arg, long long), f, base(f->cv))
+		: lbase(va_arg(arg, long), f, base(f->cv)));
+	else if (f->mod[0] == 'h')
+		return (f->mod[1] == 'h' ? lbase((char)va_arg(arg, int), f, base(f->cv))
+		: lbase((short)va_arg(arg, int), f, base(f->cv)));
+	else
+		return (lbase(va_arg(arg, int), f, base(f->cv)));
+}
 
 int	lbase(long long a, t_format *f, int base)
 {

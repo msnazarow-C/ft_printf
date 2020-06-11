@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd_ull.c                                 :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/19 12:29:19 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/08 21:48:19 by sgertrud         ###   ########.fr       */
+/*   Created: 2020/06/07 07:54:12 by sgertrud          #+#    #+#             */
+/*   Updated: 2020/06/11 15:53:00 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int	ft_putnbr_fd_ull(unsigned long long nb, int fd)
+int		u_digital(char c)
 {
-	int i;
+	return (c == 'u' || c == 'x' || c == 'X' || c == 'o' || c == 'p');
+}
 
-	i = 0;
-	if (nb / 10 != 0)
-	{
-		i += ft_putnbr_fd_ull(nb / 10, fd);
-		return (i + ft_putchar_fd((nb % 10) + '0', 1, fd));
-	}
-	else
-		return (i + ft_putchar_fd((nb % 10) + '0', 1, fd));
+int		digital(char c)
+{
+	return (c == 'i' || c == 'd' || u_digital(c));
+}
+
+int		is_float(char c)
+{
+	return (c == 'f' || c == 'g' || c == 'e');
+}
+
+int		min(int a, int b)
+{
+	return (a < b ? a : b);
+}
+
+double	f_abs(double l)
+{
+	return (l > 0 ? l : -l);
 }

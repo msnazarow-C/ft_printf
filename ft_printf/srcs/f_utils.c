@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd_ull.c                                 :+:      :+:    :+:   */
+/*   f_utils.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/19 12:29:19 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/08 21:48:19 by sgertrud         ###   ########.fr       */
+/*   Created: 2020/06/12 00:14:00 by sgertrud          #+#    #+#             */
+/*   Updated: 2020/06/12 00:14:16 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "f_print.h"
 
-int	ft_putnbr_fd_ull(unsigned long long nb, int fd)
+void	fl_clear(t_fl *fl)
 {
-	int i;
+	fl->len = 0;
+	fl->s = 1;
+	fl->out = 0;
+}
 
-	i = 0;
-	if (nb / 10 != 0)
-	{
-		i += ft_putnbr_fd_ull(nb / 10, fd);
-		return (i + ft_putchar_fd((nb % 10) + '0', 1, fd));
-	}
-	else
-		return (i + ft_putchar_fd((nb % 10) + '0', 1, fd));
+void	check_clear(t_check *check)
+{
+	check->depth = 0;
+	check->sum = 0;
 }
