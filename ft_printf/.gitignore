@@ -9,3 +9,4 @@ a.out
 */*.a
 *.a
 ./*.a
+.vscode
