@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 18:43:03 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 00:31:26 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/12 21:25:53 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ t_list			*ft_lstlast(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 			void (*del)(void *));
-double			ft_pw(double nb, int power);
+long double		ft_pw(long double nb, int power);
 int				ft_abs(int a);
-double			f_abs(double l);
+long double		f_abs(long double l);
 int				u_digital(char c);
 int				digital(int c);
 char			bigdigit(int a);

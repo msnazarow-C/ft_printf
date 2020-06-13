@@ -6,13 +6,13 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:37:45 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/11 15:54:12 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/12 21:25:03 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	nbr_f(double nb, int fd)
+int	nbr_f(long double nb, int fd)
 {
 	if (nb < 0)
 	{
@@ -70,10 +70,9 @@ int	nbr_ull(unsigned long long nb, int fd, t_format *f)
 
 	if (f->nil && f->cv == 'p')
 		return (ft_putstr_fd("(nil)", 1));
-	temp = (nb < 0 ? -nb : nb);
-	f->flag[1] = nb < 0 ? 1 : f->flag[1];
-	if ((f->flag[1] && nb >= 0) || nb < 0)
-		return (ft_putchar_fd(nb >= 0 ? '+' : '-', 1, fd) + print_zeros(f)) +
+	temp = nb;
+	if (f->flag[1])
+		return (ft_putchar_fd('+', 1, fd) + print_zeros(f)) +
 		((f->prec == 0 && nb == 0) ? 0 : nbrbase(temp, fd, base(f->cv), f));
 	else if (f->flag[2] && !u_digital(f->cv))
 		return (ft_putchar_fd(' ', 1, fd) + print_zeros(f) +

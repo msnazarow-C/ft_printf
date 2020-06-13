@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 05:58:09 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/11 15:44:50 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/12 18:34:25 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ int		lenprint(t_format *f, va_list arg)
 	return (-1);
 }
 
-int		ft_strlen_cw(t_format *f, va_list arg)
+size_t	ft_strlen_cw(t_format *f, va_list arg)
 {
 	return (f->mod[0] == 'l' ? (ft_strlen_w(va_arg(arg, wchar_t*), f)) :
 	(ft_strlen_f(va_arg(arg, char*), f)));
 }
 
-int		ft_strlen_f(char *s, t_format *f)
+size_t	ft_strlen_f(char *s, t_format *f)
 {
 	if (!s && f->prec < 6 && f->prec > -1)
 		return (0);
@@ -75,7 +75,7 @@ size_t	ft_strlen_w(const wchar_t *s, t_format *f)
 		return (6);
 	i = -1;
 	len = 0;
-	while (s[++i] && (f->prec == -1 ? 1 : len < f->prec))
+	while (s[++i] && ((f->prec == -1) ? 1 : len < f->prec))
 	{
 		clen = c_len(f, s[len]);
 		len += clen > f->prec ? 0 : clen;

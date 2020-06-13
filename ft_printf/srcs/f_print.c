@@ -6,13 +6,13 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/11 15:45:39 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 00:43:06 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/13 02:40:18 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int		f_print_1(double d, t_fl fl, int prec, t_check *check)
+static int		f_print_1(long double d, t_fl fl, int prec, t_check *check)
 {
 	int i;
 	int l;
@@ -35,14 +35,14 @@ static int		f_print_1(double d, t_fl fl, int prec, t_check *check)
 	return (i);
 }
 
-static int		f_print_0(double d, t_fl *fl, int prec, t_format *f)
+static int		f_print_0(long double d, t_fl *fl, int prec, t_format *f)
 {
 	int		i;
 	t_check	check;
 
 	check_clear(&check);
 	i = 0;
-	if (fl->len <= 16 || fl->out == 0)
+	if (fl->len <= 32 || fl->out == 0)
 	{
 		i = f_print_1(d, *fl, prec, &check);
 		if (check.sum == 0 && f->g && d != 0 && fl->s < 1)
@@ -53,7 +53,7 @@ static int		f_print_0(double d, t_fl *fl, int prec, t_format *f)
 		fl->out += fl->s * i;
 		(fl->len)++;
 	}
-	else if (fl->len > 16)
+	else if (fl->len > 32)
 	{
 		ft_putchar_fd('0', 1, 1);
 		(fl->len)++;
@@ -62,15 +62,17 @@ static int		f_print_0(double d, t_fl *fl, int prec, t_format *f)
 	return (check.sum - i);
 }
 
-int		f_print(t_format *f, double d)
+int		f_print(t_format *f, long double d)
 {
 	int		outlen;
 	int		sum;
 	t_fl	fl;
+	double temp;
 
+	temp = d;
 	fl_clear(&fl);
 	outlen = 0;
-	if (d < 0 && ++outlen)
+	if ((d < 0 || check_zero((unsigned long long*)&temp)) && ++outlen)
 		ft_putchar_fd('-', 1, 1);
 	else if (f->flag[1] && ++outlen)
 		ft_putchar_fd('+', 1, 1);
@@ -78,6 +80,8 @@ int		f_print(t_format *f, double d)
 		ft_putchar_fd(' ', 1, 1);
 	if (f->inf)
 		return (outlen + write(1, "inf", 3));
+	if (f->nan)
+		return (outlen + write(1, "nan", 3));
 	outlen += print_zeros(f);
 	d = f_abs(d);
 	while (fl.s * 10 <= d)
@@ -91,18 +95,22 @@ int		f_print(t_format *f, double d)
 	return (outlen + fl.len);
 }
 
-int		e_print(t_format *f, double d)
+int		e_print(t_format *f, long double d)
 {
 	int		l;
-	double	temp;
+	long double	temp;
 
 	temp = f_abs(d);
 	l = 0;
+	if (f->inf)
+		return (write(1, "inf", 3));
+	if (f->nan)
+		return (write(1, "nan", 3));
 	if (temp >= 10)
 		while (temp >= 10 && ++l)
 			temp /= 10;
 	else if (temp < 1 && temp > 0)
-		while (temp <= 1 && temp > 0 && --l)
+		while (temp < 1 && temp > 0 && --l)
 			temp *= 10;
 	f->count += f_print(f, (d > 0 ? temp : -temp));
 	f->count += ft_putchar_fd('e', 1, 1);

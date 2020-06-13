@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:54:12 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/11 15:53:00 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/13 01:31:50 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ int		min(int a, int b)
 	return (a < b ? a : b);
 }
 
-double	f_abs(double l)
+long double	f_abs(long double l)
 {
 	return (l > 0 ? l : -l);
 }
+
+

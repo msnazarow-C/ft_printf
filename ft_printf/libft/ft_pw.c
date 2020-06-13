@@ -6,14 +6,14 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 03:09:15 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/11 21:52:26 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/12 21:25:29 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	iter(double nb, int power)
+double	iter(long double nb, int power)
 {
 	int		i;
-	double	out;
+	long double	out;
 
 	i = 0;
 	out = 1;
@@ -38,7 +38,7 @@ double	iter(double nb, int power)
 	return (out);
 }
 
-double	ft_pw(double nb, int power)
+long double	ft_pw(long double nb, int power)
 {
 	if (power == 0 || nb == 1)
 	{
