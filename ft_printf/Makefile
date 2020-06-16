@@ -6,7 +6,7 @@
 #    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 20:40:17 by sgertrud          #+#    #+#              #
-#    Updated: 2020/06/17 02:21:35 by sgertrud         ###   ########.fr        #
+#    Updated: 2020/06/17 02:26:50 by sgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,7 @@ UNAME = $(shell uname)
 ifeq ($(UNAME), Linux)
 OBJ_FILES += lenprint_linux.o parsing_linux.o print_one_linux.o printing_linux.o\
 				printing_utils_linux.o length_utils_linux.o f_len_linux.o
-endif
-ifeq ($(UNAME), Darwin)
+else
 OBJ_FILES += lenprint_mac.o parsing_mac.o print_one_mac.o printing_mac.o\
 			printing_utils_mac.o length_utils_mac.o f_len_mac.o
 endif
