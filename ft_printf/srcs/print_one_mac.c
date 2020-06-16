@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 06:01:24 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/17 00:31:36 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 00:35:56 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	print_one(t_format *f, va_list arg)
 {
 	if (f->cv == '%')
 	{
-		if (f->flag[0])
+		if (!f->flag[0] && f->flag[4])
 			print_zeros(f);
 		return (ft_putchar_fd('%', 1, 1));
 	}
@@ -58,7 +58,7 @@ int	print_one(t_format *f, va_list arg)
 		return (e_print(f, va_arg(arg, double)));
 	if (f->cv == 'c')
 	{
-		if (f->flag[0])
+		if (!f->flag[0] && f->flag[4])
 			print_zeros(f);
 		return (ft_putchar_fd((f->mod[0] == 'l' ? va_arg(arg, wchar_t) :
 		(char)va_arg(arg, int)), f->prec, 1));
