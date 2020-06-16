@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/04 22:53:04 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/13 01:55:06 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/14 01:23:54 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	print_width(t_format *f, va_list arg)
 				(f->cv == 's' ? min(f->prec, f->len) : max(f->prec, f->len)) -
 				f->flag[1] && ++f->count)
 					write(1, " ", 1);
-			else if (!f->flag[4] || f->nan)
+			else if (!f->flag[4] || f->nan || f->inf)
 				while (f->count + f->flag[2] + lenhex(f->cv, f) < f->width -
 				f->len - f->flag[1] && ++f->count)
 					write(1, " ", 1);
