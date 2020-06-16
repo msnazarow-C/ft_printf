@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 05:58:09 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/17 00:21:40 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 00:53:18 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,9 @@ size_t	ft_strlen_w(const wchar_t *s, t_format *f)
 	int i;
 	int clen;
 
-	if (!s)
+	if (!s && f->prec < 6 && f->prec > -1)
+		return (0);
+	if (!s && f->prec >=6)
 		return (6);
 	i = -1;
 	len = 0;

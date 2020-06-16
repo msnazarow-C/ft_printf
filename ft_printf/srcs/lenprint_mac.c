@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lenprint.c                                         :+:      :+:    :+:   */
+/*   lenprint_mac.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 05:58:09 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/16 20:18:25 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 00:54:39 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ size_t	ft_strlen_cw(t_format *f, va_list arg)
 size_t	ft_strlen_f(char *s, t_format *f)
 {
 	if (!s && f->prec < 6 && f->prec > -1)
-		return (0);
+		return (f->prec);
 	else
 		return (ft_strlen(s));
 }
@@ -68,7 +68,7 @@ size_t	ft_strlen_w(const wchar_t *s, t_format *f)
 	int clen;
 
 	if (!s)
-		return (6);
+		return (min(6, f->prec > -1 ? f->prec : 6));
 	i = -1;
 	len = 0;
 	while (s[++i] && ((f->prec == -1) ? 1 : len < f->prec))
