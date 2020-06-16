@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:52:21 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/17 01:25:44 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 01:46:48 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	u_lbase(unsigned long long a, t_format *f, int base)
 int	lenhex(char c, t_format *f)
 {
 	if (f->prec > f->len && f->cv == 'o')
+		return (0);
+	if (f->nil && f->cv != 'p')
 		return (0);
 	if (f->flag[3])
 	{

@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 15:38:15 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/17 01:22:20 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 01:47:05 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int		base(char c)
 
 int		printhex(char c, t_format *f)
 {
+	if (f->nil || f->cv != 'p')
+		return (0);
 	if (f->flag[3])
 	{
 		if (c == 'x' || c == 'p')
