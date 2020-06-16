@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 19:46:00 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/17 00:58:51 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 02:15:01 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ static void	parsing_add(t_format *f)
 	if (f->cv == 'p')
 	{
 		f->cv = 'x';
+		f->p = 1;
 		f->flag[3] = 1;
 		f->mod[0] = 'l';
 		f->mod[1] = 'l';

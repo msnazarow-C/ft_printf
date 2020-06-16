@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:02:10 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/16 23:35:06 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 02:13:05 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_format
 	char	inf;
 	char	g;
 	char	nan;
+	char	p;
 }				t_format;
 
 size_t			ft_strlen_f(char *s, t_format *f);

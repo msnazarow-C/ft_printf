@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/05 15:38:15 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/17 01:50:08 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 02:17:04 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		base(char c)
 
 int		printhex(char c, t_format *f)
 {
-	if (f->nil && f->cv != 'p')
+	if (f->nil && !f->p)
 		return (0);
 	if (f->flag[3])
 	{

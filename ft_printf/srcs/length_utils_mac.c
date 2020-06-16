@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:52:21 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/17 01:46:48 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 02:15:33 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	lenhex(char c, t_format *f)
 {
 	if (f->prec > f->len && f->cv == 'o')
 		return (0);
-	if (f->nil && f->cv != 'p')
+	if (f->nil && !f->p)
 		return (0);
 	if (f->flag[3])
 	{
