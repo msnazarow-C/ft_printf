@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_print.h                                          :+:      :+:    :+:   */
+/*   f_utils2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/11 22:55:26 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/16 23:11:02 by sgertrud         ###   ########.fr       */
+/*   Created: 2020/06/16 23:23:47 by sgertrud          #+#    #+#             */
+/*   Updated: 2020/06/16 23:35:21 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef F_PRINT_H
-# define F_PRINT_H
+#include "length.h"
+#include "libft.h"
 
-typedef struct	s_fl
+int		check_print(t_format *f, long double d)
 {
-	long double	out;
-	long double	s;
-	int			len;
-}				t_fl;
+	double	temp;
+	int		outlen;
 
-typedef struct	s_check
-{
-	int	depth;
-	int	sum;
-}				t_check;
-
-void			check_clear(t_check *check);
-int				fl_clear(t_fl *fl);
-char			check_zero(unsigned long long *c);
-char			check_nan(unsigned long long *c);
-char			check_inf(unsigned long long *c);
-#endif
+	outlen = 0;
+	temp = d;
+	if ((d < 0 || check_zero((unsigned long long*)&temp)) && ++outlen)
+		ft_putchar_fd('-', 1, 1);
+	else if (f->flag[1] && ++outlen)
+		ft_putchar_fd('+', 1, 1);
+	else if (f->flag[2] && ++outlen)
+		ft_putchar_fd(' ', 1, 1);
+	return (outlen);
+}

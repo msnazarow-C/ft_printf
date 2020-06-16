@@ -6,29 +6,29 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 01:45:38 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 21:09:12 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/16 23:28:03 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void parse_n(t_format *f, va_list arg,unsigned long long out)
+void	parse_n(t_format *f, va_list arg, unsigned long long out)
 {
 	if (f->mod[0] == 'l')
-		if(f->mod[1] == 'l')
-		*va_arg(arg,unsigned long long*) = (unsigned long long)out;
+		if (f->mod[1] == 'l')
+			*va_arg(arg, unsigned long long*) = (unsigned long long)out;
 		else
-		*va_arg(arg,unsigned long*) = (unsigned long)out;
+			*va_arg(arg, unsigned long*) = (unsigned long)out;
 	else if (f->mod[0] == 'h')
 		if (f->mod[1] == 'h')
-		*va_arg(arg,unsigned int*) = (unsigned char)out;
+			*va_arg(arg, unsigned int*) = (unsigned char)out;
 		else
-		*va_arg(arg,unsigned int*) = (unsigned short)out;
+			*va_arg(arg, unsigned int*) = (unsigned short)out;
 	else
-		*va_arg(arg,unsigned int*) = out;
+		*va_arg(arg, unsigned int*) = out;
 }
 
-int	ft_printf(const char *s, ...)
+int		ft_printf(const char *s, ...)
 {
 	t_format	format;
 	va_list		arg;

@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 05:58:09 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 18:34:25 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/16 20:18:25 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,8 @@ int		lenprint(t_format *f, va_list arg)
 		return (u_len(f, arg));
 	if (f->cv == 's')
 		return (ft_strlen_cw(f, arg));
-	if (f->cv == 'f')
-		return (f_len(f, va_arg(arg, double)));
-	if (f->cv == 'e')
-		return (e_len(f, va_arg(arg, double)));
-	if (f->cv == 'g')
-		return (g_len(f, va_arg(arg, double)));
+	if (f->cv == 'f' || f->cv == 'e' || f->cv == 'g')
+		return (check(f, va_arg(arg, double)));
 	return (-1);
 }
 

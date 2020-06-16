@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:02:10 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/13 01:50:55 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/16 23:35:06 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LENGTH_H
 
 # include <stdarg.h>
+# include <stdlib.h>
 
 typedef struct	s_format
 {
@@ -42,4 +43,7 @@ int				e_len(t_format *f, long double num);
 int				g_len(t_format *f, long double num);
 int				u_len(t_format *f, va_list arg);
 int				s_len(t_format *f, va_list arg);
+int				check(t_format *f, long double num);
+char			check_zero(unsigned long long *c);
+int				check_print(t_format *f, long double d);
 #endif

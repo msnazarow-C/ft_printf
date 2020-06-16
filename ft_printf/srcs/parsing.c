@@ -6,13 +6,13 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 19:46:00 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 20:50:40 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 00:04:32 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	flags(char **s, t_format *format)
+void		flags(char **s, t_format *format)
 {
 	while (is_flag(**s))
 	{
@@ -34,7 +34,7 @@ void	flags(char **s, t_format *format)
 		format->flag[4] = 0;
 }
 
-int		pars_int(char **s)
+int			pars_int(char **s)
 {
 	int out;
 
@@ -66,7 +66,7 @@ static void	parsing_add(t_format *f)
 		f->mod[0] = 'l';
 		f->mod[1] = 'l';
 	}
-	if (f->cv == 's')
+	if (f->cv == 's' || f->cv == 'c' || f->cv == '%')
 	{
 		f->flag[1] = 0;
 		f->flag[2] = 0;
@@ -79,7 +79,7 @@ static void	parsing_add(t_format *f)
 		f->prec = 6;
 }
 
-char	*parsing(char *s, t_format *f, va_list arg)
+char		*parsing(char *s, t_format *f, va_list arg)
 {
 	flags(&s, f);
 	if (ft_isdigit(*s))

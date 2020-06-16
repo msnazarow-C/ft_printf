@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/03 02:21:10 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 22:52:44 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/16 23:29:52 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int				print_zeros(t_format *f);
 int				putstr(t_format *f, va_list arg);
 int				ft_putstr_w(wchar_t *s, int fd, t_format *f);
 int				is_float(char c);
-int				f_print(t_format *f,long double d);
-int				e_print(t_format *f,long double d);
+int				f_print(t_format *f, long double d);
+int				e_print(t_format *f, long double d);
 
 #endif

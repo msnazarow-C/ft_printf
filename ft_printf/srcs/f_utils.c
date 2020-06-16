@@ -6,17 +6,18 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/12 00:14:00 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/13 02:44:01 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/16 23:10:37 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "f_print.h"
 
-void	fl_clear(t_fl *fl)
+int		fl_clear(t_fl *fl)
 {
 	fl->len = 0;
 	fl->s = 1;
 	fl->out = 0;
+	return (0);
 }
 
 void	check_clear(t_check *check)

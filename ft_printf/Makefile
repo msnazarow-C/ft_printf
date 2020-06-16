@@ -6,7 +6,7 @@
 #    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 20:40:17 by sgertrud          #+#    #+#              #
-#    Updated: 2020/06/12 00:37:08 by sgertrud         ###   ########.fr        #
+#    Updated: 2020/06/16 23:59:59 by sgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,17 @@ SRC = srcs/
 OBJ = obj/
 INCLUDES = includes
 OBJ_FILES = printing_utils.o printing.o parsing.o parsing_utils.o \
-				lenprint.o print_one.o length_utils.o nbr.o ft_printf.o \
-				f_print.o f_len.o f_utils.o
+				 print_one.o length_utils.o nbr.o ft_printf.o \
+				f_print.o f_len.o f_utils.o f_utils2.o g_len.o
 LIBFT = libft
+UNAME = $(shell uname)
 
-
+ifeq ($(UNAME), Linux)
+OBJ_FILES += lenprint_linux.o
+endif
+ifeq ($(UNAME), Darwin)
+OBJ_FILES += lenprint_mac.o
+endif
 OBJ_OBJ_FILES = $(addprefix $(OBJ),$(OBJ_FILES))
 D_FILES = $(patsubst %.o, %.d, $(OBJ_OBJ_FILES))
 CFLAGS = -Wall -Wextra -Werror
