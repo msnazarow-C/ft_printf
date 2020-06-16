@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/07 07:52:21 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 18:36:53 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 01:09:47 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,11 @@ int	u_lbase(unsigned long long a, t_format *f, int base)
 	f->nil = (a == 0);
 	len = (f->prec == 0 && a == 0 && !(f->flag[3] && f->cv == 'o')) ? 0 : 1;
 	if (f->cv == 'p' && f->nil)
+	{
+		if (f->prec != -1)
+		f->prec = min(f->prec, 5);
 		return (5);
+	}
 	while (a /= base)
 		len++;
 	return (len);
