@@ -6,7 +6,7 @@
 #    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 20:40:17 by sgertrud          #+#    #+#              #
-#    Updated: 2020/06/17 00:38:54 by sgertrud         ###   ########.fr        #
+#    Updated: 2020/06/17 00:45:29 by sgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,12 +21,12 @@ OBJ_FILES = printing_utils.o parsing_utils.o \
 LIBFT = libft
 UNAME = $(shell uname)
 
-#ifeq ($(UNAME), Linux)
-#OBJ_FILES += lenprint_linux.o parsing_linux.o print_one_linux.o printing_linux.o
-#endif
-#ifeq ($(UNAME), Darwin)
+ifeq ($(UNAME), Linux)
+OBJ_FILES += lenprint_linux.o parsing_linux.o print_one_linux.o printing_linux.o
+endif
+ifeq ($(UNAME), Darwin)
 OBJ_FILES += lenprint_mac.o parsing_mac.o print_one_mac.o printing_mac.o
-#endif
+endif
 OBJ_OBJ_FILES = $(addprefix $(OBJ),$(OBJ_FILES))
 D_FILES = $(patsubst %.o, %.d, $(OBJ_OBJ_FILES))
 CFLAGS = -Wall -Wextra -Werror
