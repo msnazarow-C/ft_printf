@@ -51,7 +51,7 @@ int			g_len(t_format *f, long double num)
 	f->g = 1;
 	num = f_abs(num);
 	if (num == 0 && (f->cv = 'f'))
-		return (f->flag[3] ? --f->prec + 2 : (f->prec = 0) + 1);
+		return (f->flag[3] ? max(--f->prec, 0) + 2 : (f->prec = 0) + 1);
 	prec_temp = f->prec ? f->prec : 1;
 	f->prec = f->prec > 1 ? f->prec - 1 : 0;
 	el = e_len(f, num);

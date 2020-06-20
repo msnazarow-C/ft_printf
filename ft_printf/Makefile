@@ -6,7 +6,7 @@
 #    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 20:40:17 by sgertrud          #+#    #+#              #
-#    Updated: 2020/06/17 02:38:28 by sgertrud         ###   ########.fr        #
+#    Updated: 2020/06/18 22:52:24 by sgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,4 +63,4 @@ re:
 bonus:
 	make all
 include $(wildcard $(D_FILES))
-.PHONY: all clean fclean re so
+.PHONY: all clean fclean re 

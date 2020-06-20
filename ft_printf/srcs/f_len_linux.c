@@ -87,16 +87,15 @@ static int		f_print_0(long double d, t_fl *fl, int prec, t_format *f)
 int				f_len(t_format *f, long double num)
 {
 	int			sum;
-	int			k;
 	long double	s;
 	int			prec;
 	t_fl		fl;
 
 	s = 10;
-	k = fl_clear(&fl);
+	fl_clear(&fl);
 	prec = f->prec;
 	if ((num = f_abs(num)) == 0)
-		return (2 + (((f->prec == 0) && (!f->flag[3])) ? 0 : f->prec));
+		return (2 + (((f->prec == 0) && (!f->flag[3])) ? -1 : f->prec));
 	while (s < num)
 		s *= 10;
 	while (fl.s * 10 <= num)

@@ -6,13 +6,13 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/01 03:09:15 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/06/12 21:25:29 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/17 16:01:06 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double	iter(long double nb, int power)
+long double	iter(long double nb, int power)
 {
-	int		i;
+	int			i;
 	long double	out;
 
 	i = 0;

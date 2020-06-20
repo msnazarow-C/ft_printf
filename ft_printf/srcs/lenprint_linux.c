@@ -71,7 +71,7 @@ size_t	ft_strlen_w(const wchar_t *s, t_format *f)
 
 	if (!s && f->prec < 6 && f->prec > -1)
 		return (0);
-	if (!s && f->prec >= 6)
+	if (!s)
 		return (6);
 	i = -1;
 	len = 0;
