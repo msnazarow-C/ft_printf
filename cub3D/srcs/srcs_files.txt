@@ -1,0 +1,20 @@
+_FILES = /bmp.o /
+/build_image_utils.o /
+/build_image.o /
+/check_line_validity_utils.o /
+/check_line_validity.o /
+/compute_data.o /
+/draw_mlx.o /
+/errors.o /
+/exit_program.o /
+/extract_line_content.o /
+/handle_events.o /
+/handle_sprite_drawing.o /
+/handle_sprite.o /
+/init_helper.o /
+/init.o /
+/main.o /
+/move_player.o /
+/raycasting_engine_utils.o /
+/raycasting_engine.o /
+/read_input_file.o /
