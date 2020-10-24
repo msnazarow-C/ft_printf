@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:41:31 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:41:43 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 05:36:06 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "raycasting_engine.h"
 #include "mlx.h"
 #include <math.h>
+#include "errors.h"
 
 static void		draw_column_in_img(t_img *img, t_data *data, t_column *column)
 {
@@ -81,7 +82,7 @@ static void		build_columns(t_data *data, t_column *columns)
 	while (i < data->mlx.w)
 	{
 		ray_angle = data->player.orientation + offset;
-		ray_angle = (ray_angle > 2*M_PI) ? ray_angle - 2*M_PI : ray_angle;
+		ray_angle = (ray_angle > 2 * M_PI) ? ray_angle - 2 * M_PI : ray_angle;
 		ray_angle = (ray_angle < 0) ? ray_angle + 2 * M_PI : ray_angle;
 		ray.sprites = NULL;
 		ray = get_ray(data, ray_angle, offset);
@@ -112,6 +113,7 @@ void			clear_columns(t_data *data, t_column *columns)
 int				build_image(t_data *data, t_img **img)
 {
 	t_column	*columns;
+
 	if (!(columns = malloc(sizeof(t_column) * data->mlx.w)))
 		return (ERR_MALLOC);
 	build_columns(data, columns);

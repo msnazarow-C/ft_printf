@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:15:01 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:16:55 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 04:09:53 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int			handle_moves(t_data *data)
 			data->player.orientation += 2 * M_PI;
 		draw_image_mlx(data);
 	}
-	return (OK);
+	return (0);
 }
 
 void		convert_keycode(int *keycode)
@@ -74,7 +74,7 @@ int			handle_keypress(int keycode, t_data *data)
 	convert_keycode(&keycode);
 	if (keycode < 8)
 		data->keylist[keycode] = 1;
-	return (OK);
+	return (0);
 }
 
 int			handle_keyrelease(int keycode, t_data *data)
@@ -82,5 +82,5 @@ int			handle_keyrelease(int keycode, t_data *data)
 	convert_keycode(&keycode);
 	if (keycode < 280)
 		data->keylist[keycode] = 0;
-	return (OK);
+	return (0);
 }

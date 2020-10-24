@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/23 23:34:37 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/23 23:34:41 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 04:04:50 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			save_bmp(t_data *d)
 	int						file;
 	int						ret_code;
 
-	if ((ret_code = build_image(d, &d->img)) != OK)
+	if ((ret_code = build_image(d, &d->img)))
 		return (ret_code);
 	if (!(file = open("save.bmp", O_CREAT | O_RDWR | O_TRUNC, 0666)))
 	{
@@ -52,5 +52,5 @@ int			save_bmp(t_data *d)
 	}
 	write_file(file, d->img, d);
 	close(file);
-	return (OK);
+	return (0);
 }

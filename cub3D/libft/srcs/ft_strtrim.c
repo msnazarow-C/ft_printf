@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 14:58:56 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/20 15:44:43 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 05:59:56 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	char	check(char const *set, char c)
 	return (0);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
 	size_t len;
 

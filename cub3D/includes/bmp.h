@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/29 15:38:04 by frdescam          #+#    #+#             */
-/*   Updated: 2020/10/23 22:14:41 by sgertrud         ###   ########.fr       */
+/*   Created: 2020/10/24 04:34:43 by sgertrud          #+#    #+#             */
+/*   Updated: 2020/10/24 05:32:05 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ typedef struct
 	unsigned int	bi_clr_important;
 }					t_bmp_header;
 
-int				save_bmp(t_data *data);
+int					save_bmp(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 20:40:17 by sgertrud          #+#    #+#              #
-#    Updated: 2020/10/24 00:12:57 by sgertrud         ###   ########.fr        #
+#    Updated: 2020/10/24 05:58:50 by sgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,10 @@ OBJ = obj/
 GNL = get_next_line
 INCLUDES = includes
 MLX = mlx
-OBJ_FILES = bmp.o build_image_utils.o build_image.o check_line_validity_utils.o \
-check_line_validity.o compute_data.o draw_mlx.o errors.o exit_program.o main.o\
-handle_events.o handle_sprite_drawing.o handle_sprite.o init_utils.o init.o \
-move_player.o raycasting_engine_utils.o raycasting_engine.o read_input_file.o \
-get_move.o
-
+OBJ_FILES = bmp.o build_image_utils.o build_image.o parse_line_utils.o\
+parse_line.o load_data.o draw_mlx.o errors.o exit_program.o main.o\
+handle_events.o draw_sprite.o build_sprite.o init_utils.o init.o \
+move_player.o raycasting_engine_utils.o raycasting_engine.o read_input_file.o
 LIBFT = libft
 UNAME = $(shell uname)
 OBJ_OBJ_FILES = $(addprefix $(OBJ),$(OBJ_FILES))
@@ -55,6 +53,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f save.bmp
 	make -C $(GNL) fclean
 	make -C $(LIBFT) fclean
 re:

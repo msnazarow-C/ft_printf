@@ -63,4 +63,4 @@ re:
 bonus:
 	make all
 include $(wildcard $(D_FILES))
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re bonus main

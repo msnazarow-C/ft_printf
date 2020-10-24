@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:11:33 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:30:27 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 05:57:32 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "mlx.h"
 #include "cub3d.h"
 #include "init.h"
+#include "errors.h"
 
 static void	check_args(int argc, char **argv)
 {
@@ -28,21 +29,27 @@ static void	check_args(int argc, char **argv)
 	}
 }
 
-static void	init_data(t_data *data)
+static void	init_key(t_data *data)
 {
 	int	i;
 
-	data->map = NULL;
-	data->map_w = 0;
-	data->map_h = 0;
 	i = -1;
 	while (++i < 8)
 		data->keylist[i] = 0;
-	data->paths.north = NULL;
-	data->paths.south = NULL;
-	data->paths.east = NULL;
-	data->paths.west = NULL;
-	data->paths.sprite = NULL;
+}
+
+static void	init_data(t_data *data)
+{
+	init_key(data);
+	data->map = NULL;
+	data->map_w = 0;
+	data->map_h = 0;
+	data->ps.north = NULL;
+	data->ps.s = NULL;
+	data->ps.e = NULL;
+	data->ps.west = NULL;
+	data->ps.sprite = NULL;
+	data->img = NULL;
 	data->mlx.north_texture.img = NULL;
 	data->mlx.south_texture.img = NULL;
 	data->mlx.east_texture.img = NULL;
@@ -62,14 +69,14 @@ int			init(int argc, char **argv, t_data **data)
 	int	ret_code;
 	int	fd;
 
-	if (!(*data = malloc(sizeof(t_data))))
-		return (-1);
-	init_data(*data);
 	check_args(argc, argv);
-	if (!((*data)->mlx.mlx_id = mlx_init()))
-		return (-1);
 	if ((fd = open(argv[1], O_RDONLY)) == -1)
-		return (-1);
+		return (ERR_OPEN_MAP);
+	if (!(*data = malloc(sizeof(t_data))))
+		return (ERR_MALLOC);
+	init_data(*data);
+	if (!((*data)->mlx.mlx_id = mlx_init()))
+		return (ERR_MLX);
 	if ((ret_code = read_input_file(fd, *data)) != OK)
 		return (ret_code);
 	close(fd);

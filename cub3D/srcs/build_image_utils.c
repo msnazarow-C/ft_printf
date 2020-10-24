@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:41:47 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:41:49 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 05:08:49 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,24 @@ int		get_floor_color(t_data *data)
 int		get_wall_color(t_data *data, t_column *column, int line)
 {
 	if (column->wall == 'N')
-		if (!data->paths.north)
+		if (!data->ps.north)
 			return (0xff0000);
 		else
 			return (get_texture_px(&data->mlx.north_texture, column,
 				line * data->mlx.north_texture.height / column->height));
 	else if (column->wall == 'S')
-		if (!data->paths.south)
+		if (!data->ps.s)
 			return (0xffff00);
 		else
 			return (get_texture_px(&data->mlx.south_texture, column,
 				line * data->mlx.south_texture.height / column->height));
 	else if (column->wall == 'E')
-		if (!data->paths.east)
+		if (!data->ps.e)
 			return (0x0000ff);
 		else
 			return (get_texture_px(&data->mlx.east_texture, column,
 				line * data->mlx.east_texture.height / column->height));
-	else if (!data->paths.west)
+	else if (!data->ps.west)
 		return (0xffffff);
 	else
 		return (get_texture_px(&data->mlx.west_texture, column,

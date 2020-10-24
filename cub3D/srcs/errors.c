@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:18:00 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:18:35 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 05:56:50 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "libft.h"
 #include "cub3d.h"
 #include "mlx.h"
+#include "errors.h"
 
 void	init_msg2(char *err_msg[42])
 {
@@ -28,17 +29,20 @@ void	init_msg2(char *err_msg[42])
 	err_msg[46] = "Cannot write BMP file";
 	err_msg[47] = "Map is not last";
 	err_msg[50] = "MLX error";
+	err_msg[51] = "MALLOC error";
 }
 
 void	init_msg(char *err_msg[42])
 {
 	err_msg[0] = "Unknown error";
 	err_msg[1] = "Unknown error";
+	err_msg[20] = "Cannot open map";
 	err_msg[21] = "unexpected end of file";
 	err_msg[22] = "Found empty line in map definition";
 	err_msg[23] = "Syntax error : Unknown key on map file";
 	err_msg[24] = "Syntax error : too few values on map file";
 	err_msg[25] = "Syntax error : too many values on map file";
+	err_msg[26] = "Cannot open texture file";
 	err_msg[27] = "Duplicate key on map file";
 	err_msg[28] = "Syntax error in color value";
 	err_msg[29] = "Unexpected color value";
@@ -53,7 +57,7 @@ void	init_msg(char *err_msg[42])
 	init_msg2(err_msg);
 }
 
-void	handle_errors(int error_code, t_data *data)
+int		handle_errors(int error_code, t_data *data)
 {
 	char	*err_msg[52];
 
@@ -61,5 +65,8 @@ void	handle_errors(int error_code, t_data *data)
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(err_msg[error_code], 2);
 	ft_putstr_fd("\n", 2);
+	if (error_code == ERR_OPEN_MAP)
+		exit(0);
 	exit_program(data);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:08:10 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:08:42 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 04:38:14 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,19 @@ static	int	is_move_possible(t_player *player, char **map, double y_shift,
 			return (0);
 	}
 	return (1);
+}
+
+t_move		get_move(double angle)
+{
+	t_move	move;
+	double	rad_angle;
+
+	rad_angle = angle;
+	move.x_shift = sin(rad_angle) * 0.1;
+	move.y_shift = cos(rad_angle) * 0.1 * -1;
+	move.offset_wall_x = move.x_shift > 0 ? 1 : -1;
+	move.offset_wall_y = move.y_shift > 0 ? 1 : -1;
+	return (move);
 }
 
 void		move_player(double angle, t_data *data)

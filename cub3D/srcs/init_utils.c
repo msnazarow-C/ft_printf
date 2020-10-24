@@ -6,12 +6,13 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:23:48 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:25:01 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 04:10:12 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "init.h"
 #include "libft.h"
+#include "errors.h"
 
 static int	is_point_closed(t_data *data, int x, int y)
 {
@@ -45,7 +46,7 @@ int			is_map_closed(t_data *data)
 		}
 		y++;
 	}
-	return (OK);
+	return (0);
 }
 
 char		*get_value_after_key(char *line)

@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 18:43:03 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/23 23:13:52 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 05:59:36 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, const char *delimiters);
-char				**ft_clear_splitted(char **tab);
+char			**ft_clear_splitted(char **tab);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			*ft_itoa(int n);
 void			ft_putnbr_fd(int nb, int fd);

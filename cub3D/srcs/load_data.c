@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:23:37 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 00:30:27 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/24 05:08:49 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 #include "libft.h"
 #include "mlx.h"
 #include <math.h>
+#include "errors.h"
 
 static int	load_texture(t_data *data, t_texture *texture,
 		char *texture_path)
 {
 	if (!(texture->img = mlx_xpm_file_to_image(data->mlx.mlx_id, texture_path,
 			&texture->width, &texture->height)))
-		return (-1);
+		return (ERR_MLX);
 	if (!(texture->data = (int *)mlx_get_data_addr(texture->img, &texture->bpp,
 			&texture->size,
 			&texture->endian)))
-		return (-1);
+		return (ERR_MLX);
 	return (OK);
 }
 
@@ -98,19 +99,19 @@ int			load_data(t_data *data)
 	int		ret_code;
 
 	if ((ret_code = load_texture(data, &data->mlx.north_texture,
-								data->paths.north)) != OK)
+								data->ps.north)) != OK)
 		return (ret_code);
 	if ((ret_code = load_texture(data, &data->mlx.south_texture,
-								data->paths.south)) != OK)
+								data->ps.s)) != OK)
 		return (ret_code);
 	if ((ret_code = load_texture(data, &data->mlx.east_texture,
-								data->paths.east)) != OK)
+								data->ps.e)) != OK)
 		return (ret_code);
 	if ((ret_code = load_texture(data, &data->mlx.west_texture,
-								data->paths.west)) != OK)
+								data->ps.west)) != OK)
 		return (ret_code);
 	if ((ret_code = load_texture(data, &data->mlx.sprite_texture,
-								data->paths.sprite)) != OK)
+								data->ps.sprite)) != OK)
 		return (ret_code);
 	if ((ret_code = fix_map(data)) != OK)
 		return (ret_code);
