@@ -1,0 +1,12 @@
+R 500 500
+C 100,100,100
+F 10,10,10
+NO ./textures/try.xpm
+WE ./textures/unnamed.xpm
+SO ./textures/try2.xpm
+EA ./textures/try3.xpm
+S ./textures/miniman.xpm
+1111
+1001
+1E01
+1111
