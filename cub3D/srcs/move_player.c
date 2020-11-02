@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:08:10 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 04:38:14 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/26 23:20:12 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ t_move		get_move(double angle)
 	double	rad_angle;
 
 	rad_angle = angle;
-	move.x_shift = sin(rad_angle) * 0.1;
-	move.y_shift = cos(rad_angle) * 0.1 * -1;
+	move.x_shift = sin(rad_angle) * 0.2;
+	move.y_shift = cos(rad_angle) * 0.2 * -1;
 	move.offset_wall_x = move.x_shift > 0 ? 1 : -1;
 	move.offset_wall_y = move.y_shift > 0 ? 1 : -1;
 	return (move);

@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/24 00:15:01 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/10/24 04:09:53 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/10/26 23:31:02 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #include "cub3d.h"
 #include "move_player.h"
 #include <math.h>
+#include <time.h>
+#include <stdio.h>
+
+clock_t t;
 
 static int	is_key_pressed(t_data *data)
 {
@@ -27,9 +31,9 @@ int			handle_moves(t_data *data)
 	if (is_key_pressed(data))
 	{
 		if (data->keylist[RIGHT])
-			data->player.orientation += 0.02;
+			data->player.orientation += 0.04;
 		if (data->keylist[LEFT])
-			data->player.orientation -= 0.02;
+			data->player.orientation -= 0.04;
 		if (data->keylist[W] || data->keylist[UP])
 			move_player(data->player.orientation, data);
 		if (data->keylist[S] || data->keylist[DOWN])
@@ -42,8 +46,11 @@ int			handle_moves(t_data *data)
 			data->player.orientation -= 2 * M_PI;
 		if (data->player.orientation < 0)
 			data->player.orientation += 2 * M_PI;
-		draw_image_mlx(data);
 	}
+	t = clock();
+	draw_image_mlx(data);
+	t = t - clock();
+	printf("%ld\n", CLOCKS_PER_SEC / t);
 	return (0);
 }
 
