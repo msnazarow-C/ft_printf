@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 22:29:43 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/11/03 02:42:30 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/11/03 23:57:36 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "fcntl.h"
 #include "errno.h"
 #include "test.h"
+#include "assert.h"
 
 void	test_write(void)
 {
@@ -117,5 +118,7 @@ int		main(void)
 	test_strdup();
 	printf("\n");
 	test_list();
+	printf("\n");
+	printf("atoi: %d\n", (ft_atoi_base("asdfghjklq", "asdfghjklq")));
 	return (0);
 }

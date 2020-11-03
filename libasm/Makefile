@@ -6,7 +6,7 @@
 #    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/04 20:40:17 by sgertrud          #+#    #+#              #
-#    Updated: 2020/11/03 02:43:53 by sgertrud         ###   ########.fr        #
+#    Updated: 2020/11/03 23:58:34 by sgertrud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ $(OBJ)%.o: $(SRC)%.s
 clean:
 	rm -rf $(OBJ)
 fclean: clean
+	rm -f write.txt
 	rm -f $(NAME)
 	rm -f ./a.out
 re:

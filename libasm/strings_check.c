@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/31 01:07:25 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/11/02 21:19:55 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/11/03 03:08:51 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,14 @@ void	test_strcpy(void)
 	"medium medium medium medium medium medium\0ETOGO NET"));
 	printf("   \033[35mstrcpy (medi) =>\033[0m %s\n", strcpy(dst,
 	"medium medium medium medium medium medium\0ETOGO NET"));
-	printf("\033[33mft_strcpy (long) =>\033[0m %s\n", ft_strcpy(dst, "123456789\
-	0123456\
+	printf("\033[33mft_strcpy (long) =>\033[0m %s\n", ft_strcpy(dst, "0123456\
 	789012345678901234567890123456789012345678901234567890123456789012345678901\
 	234567890jdsfhgplsfdhgsdafhg[oidsfg[ajkfr]poi[sdafkjsdfka]afj]sadjifas]d\
 	as;hfdpdsadhfposdauhf[osjaf[isajdf[isadfagh[osadifsdjif[asidfsfjsafdjjfdasd\
 	asdflkjsad[fjsa[odifj[]saidfj[]sdfsfisdaf[jdf]isadfisdfias][dijaida]difjasd\
 	asdfpjo[sadifj]psdojf]psaokfdpodfs]dfj]asdjf]psdjf]asdfj]asf]psjdf]asfp\0\
 	ETOGOTUTNET"));
-	printf("   \033[35mstrcpy (long) =>\033[0m %s\n", strcpy(dst, "123456789\
-	0123456\
+	printf("   \033[35mstrcpy (long) =>\033[0m %s\n", strcpy(dst, "0123456\
 	789012345678901234567890123456789012345678901234567890123456789012345678901\
 	234567890jdsfhgplsfdhgsdafhg[oidsfg[ajkfr]poi[sdafkjsdfka]afj]sadjifas]d\
 	as;hfdpdsadhfposdauhf[osjaf[isajdf[isadfagh[osadifsdjif[asidfsfjsafdjjfdasd\
@@ -89,10 +87,8 @@ void	test_strcmp(void)
 	printf("\033[33mstrcmp (e2nd) =>\033[0m %d\n", strcmp("string", ""));
 	printf("\033[33mft_strcmp (same) =>\033[0m %d\n", ft_strcmp(s, s));
 	printf("\033[33mstrcmp (same) =>\033[0m %d\n", strcmp(s, s));
-
-	printf("\033[33mft_strcmp (dif+) =>\033[0m %d\n", ft_strcmp("\xff\xff", "\xff"));
+	printf("ft_strcmp (dif+) => %d\n", ft_strcmp("\xff\xff", "\xff"));
 	printf("\033[33mstrcmp (dif+) =>\033[0m %d\n", strcmp("\xff\xff", "\xff"));
-
 	printf("\033[33mft_strcmp (dif-) =>\033[0m %d\n", ft_strcmp("a", "b"));
 	printf("\033[33mstrcmp (dif-) =>\033[0m %d\n", strcmp("a", "b"));
 	free(s);

@@ -6,12 +6,15 @@
 ;    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2020/11/03 02:39:45 by sgertrud          #+#    #+#              ;
-;    Updated: 2020/11/03 02:39:46 by sgertrud         ###   ########.fr        ;
+;    Updated: 2020/11/03 17:32:04 by sgertrud         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 global ft_list_sort
 ft_list_sort:
+	push r12
+	push r14
+	push r15
 	mov r14, rdi
 	mov r15, rsi
 	mov r8, 1
@@ -59,4 +62,7 @@ loop2:
 	mov r12,[r12 + 8]
 	jmp loop2
 end2:
+	pop r15
+	pop r14
+	pop r12 
 	ret

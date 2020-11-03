@@ -6,13 +6,16 @@
 ;    By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2020/11/03 02:37:09 by sgertrud          #+#    #+#              ;
-;    Updated: 2020/11/03 02:37:15 by sgertrud         ###   ########.fr        ;
+;    Updated: 2020/11/03 17:20:19 by sgertrud         ###   ########.fr        ;
 ;                                                                              ;
 ; **************************************************************************** ;
 
 global ft_list_remove_if
 extern free
 ft_list_remove_if:
+	push r13
+	push r14
+	push r15
 	mov r13, rsi
 	mov r14, rdi
 	mov r15, rdx
@@ -63,4 +66,7 @@ next1:
 	mov r11,[r10 + 8]
 	jmp loop2
 end2:
+	pop r15
+	pop r14
+	pop r13
 	ret
