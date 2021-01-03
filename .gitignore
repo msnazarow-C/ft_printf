@@ -1,1 +1,5 @@
-ft_printf/a.out
+a.out
+*.o
+*.d
+.vscode
+*.a

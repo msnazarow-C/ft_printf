@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 22:29:43 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/11/03 23:57:36 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/11/04 13:01:19 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	test_write(void)
 	printf("\033[1;32m\n=== ft_write ===\033[0m\n");
 	printf("\n\tft_write's => %d\n", (ret = ft_write(1, (void*)str1, 40)));
 	printf("\n\twrite's => %d \n\n", (ret = write(1, (void*)str2, 40)));
-	fd = open("write.txt", O_CREAT | O_TRUNC | O_RDWR);
+	fd = open("write.txt", O_CREAT | O_WRONLY | O_TRUNC,
+	S_IRWXG | S_IRWXU | S_IRWXO);
 	ret = ft_write(fd, (void*)str1, 40);
 	printf("\033[33mft_write - good (!check write.txt) =>\033[0m %d\n", ret);
 	ret = write(fd, (void*)str2, 40);
@@ -120,5 +121,6 @@ int		main(void)
 	test_list();
 	printf("\n");
 	printf("atoi: %d\n", (ft_atoi_base("asdfghjklq", "asdfghjklq")));
+	printf("atoi_bonus : %d\n", (ft_atoi_base("12345", "01234567")));
 	return (0);
 }
