@@ -19,7 +19,8 @@ define('DB_HOST', 'localhost');
 define('DB_CHARSET', 'utf8mb4');
 define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST']);
 define('WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST']);
-
+define('home', 'http://' . $_SERVER['HTTP_HOST']);
+define('siteurl', 'http://' . $_SERVER['HTTP_HOST']);
 /* MySQL database table prefix. */
 $table_prefix = 'wp_';
 
