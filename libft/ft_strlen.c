@@ -6,7 +6,7 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 02:41:59 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/20 09:20:44 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/11 23:59:52 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t len;
 
+	if (!s)
+		return (6);
 	len = 0;
 	while (s[len])
 		len++;

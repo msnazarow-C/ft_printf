@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"limits": "c",
-		"*.tcc": "c",
-		"type_traits": "c",
-		"build_image.h": "c"
-	}
-}

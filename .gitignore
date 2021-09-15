@@ -1,5 +1,12 @@
-a.out
+pft/
+main.c
 *.o
+./*.o
+./*.d
 *.d
-.vscode
+a.out
+./*/a.out
+*/*.a
 *.a
+./*.a
+.vscode/

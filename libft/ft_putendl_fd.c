@@ -6,14 +6,13 @@
 /*   By: sgertrud <msnazarow@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/19 12:22:04 by sgertrud          #+#    #+#             */
-/*   Updated: 2020/05/20 07:27:04 by sgertrud         ###   ########.fr       */
+/*   Updated: 2020/06/08 21:48:40 by sgertrud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int		ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	return (ft_putstr_fd(s, fd) + ft_putchar_fd('\n', 1, fd));
 }
